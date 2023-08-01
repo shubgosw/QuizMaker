@@ -1,0 +1,36 @@
+<h2 class="text-center">QUIZ MAKER</h2>
+<div class="container">
+    <form #quizForm="ngForm">
+        <div class="input-section">
+            <select id="categorySelect" name="category" [(ngModel)]="selectedCategory" required>
+                <option value="null" selected disabled>Select a category</option>
+                <option [value]="category.id" *ngFor="let category of quizCategories">{{category.name}}</option>
+
+            </select>
+
+            <select id="difficultySelect" name="difficulty" [(ngModel)]="selectedDifficulty" required>
+                <option [value]="''" selected disabled>Select difficulty</option>
+                <option [value]="'easy'">Easy</option>
+                <option [value]="'medium'">Medium</option>
+                <option [value]="'hard'">Hard</option>
+            </select>
+
+            <button [disabled]="!quizForm.valid" (click)="generateQuiz()"> Create</button>
+        </div>
+    </form>
+
+    <div class="quiz-section">
+        <div class="question-box" *ngFor="let question of quizQuestions; let i = index">
+            <p>{{question.question}}</p>
+            <div class="answer-list">
+                <button *ngFor="let answer of question.answerList" class="answer-button"
+                [class.active] = "question.chosenAnswer === answer"
+                (click)="question.chosenAnswer=answer; checkIfAllSelected()">
+                    {{answer}}
+                </button>
+            </div>
+        </div>
+
+        <button class="submit" *ngIf="enableSubmit" (click)="submitQuiz()">Submit</button>
+    </div>
+</div>

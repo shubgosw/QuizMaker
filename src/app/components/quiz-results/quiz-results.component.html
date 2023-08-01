@@ -1,0 +1,20 @@
+<h2 class="text-center">Results</h2>
+<div class="container">
+    <div class="quiz-section">
+        <div class="question-box" *ngFor="let question of quizQuestions; let i = index">
+            <p>{{question.question}}</p>
+            <div class="answer-list">
+                <button *ngFor="let answer of question.answerList" class="answer-button" [ngClass]="{'correct-answer': answer === question.correct_answer,
+            'incorrect-answer': answer !== question.correct_answer && answer === question.chosenAnswer}"
+                    [class.active]="question.chosenAnswer === answer">
+                    {{answer}}
+                </button>
+            </div>
+        </div>
+
+        <div class="result-bar" *ngIf="quizQuestions.length" [ngClass]="statusColor"><span>You scored {{userScore}} out
+                of 5</span></div>
+
+        <div class="text-center"><button class="submit" (click)="createNewQuiz()">Create New Quiz</button></div>
+    </div>
+</div>

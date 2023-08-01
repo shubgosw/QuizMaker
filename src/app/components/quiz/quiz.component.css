@@ -1,0 +1,19 @@
+
+.input-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit{
+    height: 28px;
+    width: 50%;
+    background-color: grey;
+    color: white;
+    margin: 30px auto;
+    display: block;
+}
+
+.active {
+    color: white;
+    background-color: #4d8f4d;
+}

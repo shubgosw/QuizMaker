@@ -1,0 +1,28 @@
+.correct-answer{
+    color: white;
+    background-color: #4d8f4d;
+}
+
+.incorrect-answer{
+    color: white;
+    background-color: red;
+}
+
+.result-bar{
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.bg-yellow{
+    background-color: yellow;
+}
+
+.bg-green{
+    background-color: green;
+    color: white;
+}
